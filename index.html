@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اكتشف كوتا بارو - جوهرة السياحة في كيلانتان</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(120deg, #1a3a6c 0%, #2c5282 100%);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid #ffd700;
+        }
+        
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 18px;
+            padding: 8px 16px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(26, 58, 108, 0.85), rgba(44, 82, 130, 0.9)), url('https://placehold.co/1200x600/1a3a6c/ffffff?text=كوتا+بارو+كيلانتان') center/cover no-repeat;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero h2 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .tagline {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 28px;
+            font-weight: 800;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #1a3a6c;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(255, 215, 0, 0.6);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 800;
+            margin: 60px 0 40px;
+            color: #1a3a6c;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            border-radius: 2px;
+        }
+        
+        .destinations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .destination-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .destination-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .destination-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .destination-info {
+            padding: 25px;
+        }
+        
+        .destination-info h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1a3a6c;
+        }
+        
+        .packages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .package-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .package-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+        }
+        
+        .package-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #1a3a6c;
+        }
+        
+        .package-price {
+            font-size: 32px;
+            font-weight: 800;
+            color: #1a3a6c;
+            margin: 15px 0;
+        }
+        
+        .package-features {
+            list-style: none;
+            margin: 20px 0;
+            text-align: right;
+        }
+        
+        .package-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+            color: #555;
+        }
+        
+        .package-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .booking-section {
+            background: linear-gradient(135deg, #1a3a6c 0%, #2c5282 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            border-radius: 30px;
+            margin: 60px 0;
+        }
+        
+        .booking-section h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        .booking-section p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+        
+        footer {
+            background: #1a3a6c;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h2 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .tagline {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://placehold.co/60x60/ffd700/1a3a6c?text=KB" alt="شعار كوتا بارو">
+                    <h1>كوتا بارو</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#destinations">الوجهات</a></li>
+                        <li><a href="#packages">الباقات</a></li>
+                        <li><a href="#booking">الحجز</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>مرحباً بك في كوتا بارو - جوهرة كيلانتان</h2>
+            <p>اكتشف سحر الثقافة الماليزية الأصيلة، التراث الغني، والجمال الطبيعي في عاصمة كيلانتان</p>
+            <div class="tagline">"كوتا بارو... حيث تلتقي الحضارة بالطبيعة!"</div>
+            <a href="#packages" class="btn">احجز باقتك الآن</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <h2 class="section-title">أفضل الوجهات السياحية</h2>
+        <div class="destinations" id="destinations">
+            <div class="destination-card">
+                <img src="https://placehold.co/400x200/e8f4fd/1a3a6c?text=قصر+الدولة" alt="قصر الدولة" class="destination-img">
+                <div class="destination-info">
+                    <h3>قصر الدولة</h3>
+                    <p>شاهد العمارة الماليزية التقليدية في هذا القصر التاريخي الذي يعكس عظمة ملوك كيلانتان.</p>
+                </div>
+            </div>
+            <div class="destination-card">
+                <img src="https://placehold.co/400x200/e8f4fd/1a3a6c?text=سوق+السبت" alt="سوق السبت" class="destination-img">
+                <div class="destination-info">
+                    <h3>سوق السبت</h3>
+                    <p>تجربة تسوق فريدة حيث يمكنك شراء الحرف اليدوية التقليدية والمنتجات المحلية.</p>
+                </div>
+            </div>
+            <div class="destination-card">
+                <img src="https://placehold.co/400x200/e8f4fd/1a3a6c?text=شاطئ+بانتاي+توبال" alt="شاطئ بانتاي توبال" class="destination-img">
+                <div class="destination-info">
+                    <h3>شاطئ بانتاي توبال</h3>
+                    <p>استمتع بشواطئ كيلانتان الخلابة ومياهها الصافية في هذا المكان الساحر.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">باقاتنا المميزة</h2>
+        <div class="packages" id="packages">
+            <div class="package-card">
+                <h3>باقة الاستكشاف</h3>
+                <div class="package-price">199 ر.م</div>
+                <p>لـ 3 أيام / ليلتين</p>
+                <ul class="package-features">
+                    <li>الإقامة في فندق 3 نجوم</li>
+                    <li>جولة في قصر الدولة</li>
+                    <li>زيارة سوق السبت</li>
+                    <li>وجبات إفطار يومية</li>
+                    <li>دليل سياحي محلي</li>
+                </ul>
+                <a href="#booking" class="btn">احجز الآن</a>
+            </div>
+            <div class="package-card">
+                <h3>باقة الفخامة</h3>
+                <div class="package-price">399 ر.م</div>
+                <p>لـ 5 أيام / 4 ليالٍ</p>
+                <ul class="package-features">
+                    <li>الإقامة في فندق 4 نجوم</li>
+                    <li>جولات سياحية شاملة</li>
+                    <li>رحلة إلى شاطئ بانتاي توبال</li>
+                    <li>وجبات كاملة يومياً</li>
+                    <li>نقل خاص من وإلى المطار</li>
+                </ul>
+                <a href="#booking" class="btn">احجز الآن</a>
+            </div>
+            <div class="package-card">
+                <h3>باقة العائلة</h3>
+                <div class="package-price">599 ر.م</div>
+                <p>لـ 7 أيام / 6 ليالٍ</p>
+                <ul class="package-features">
+                    <li>الإقامة في فيلا خاصة</li>
+                    <li>أنشطة ترفيهية للعائلة</li>
+                    <li>ورش حرف يدوية تقليدية</li>
+                    <li>وجبات كاملة مع أطباق محلية</li>
+                    <li>سيارة خاصة طوال الرحلة</li>
+                </ul>
+                <a href="#booking" class="btn">احجز الآن</a>
+            </div>
+        </div>
+
+        <div class="booking-section" id="booking">
+            <h2>احجز رحلتك اليوم!</h2>
+            <p>لا تفوت فرصة اكتشاف جمال كوتا بارو وتراث كيلانتان الغني. باقاتنا مصممة خصيصاً لتوفر لك تجربة لا تنسى.</p>
+            <div class="tagline">"كوتا بارو... حيث تبدأ ذكرياتك الأسطورية!"</div>
+            <a href="tel:+60123456789" class="btn">اتصل بنا الآن</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <h3>كوتا بارو للسياحة</h3>
+            <p>جوهرة السياحة في كيلانتان</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📞</span>
+                    <span>+60 12-345 6789</span>
+                </div>
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>info@kotabharutourism.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>كوتا بارو، كيلانتان، ماليزيا</span>
+                </div>
+            </div>
+            <p style="margin-top: 20px; opacity: 0.7;">© 2024 كوتا بارو للسياحة. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+</body>
+</html>
